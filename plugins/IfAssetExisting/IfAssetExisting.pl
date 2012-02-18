@@ -12,6 +12,7 @@ my $plugin = __PACKAGE__->new({
     version     => '1.00',
     author_name => 'masiuchi',
     author_link => 'https://github.com/masiuchi',
+    plugin_link => 'https://github.com/masiuchi/mt-plugin-if-asset-existing',
     description => '<__trans phrase="Judging the asset existing or not in asset block tags.">',
     registry => {
         tags => {
