@@ -14,16 +14,17 @@ my $plugin = __PACKAGE__->new({
     author_link => 'https://github.com/masiuchi',
     plugin_link => 'https://github.com/masiuchi/mt-plugin-if-asset-existing',
     description => '<__trans phrase="Judging the asset existing or not in asset block tags.">',
-    registry => {
-        tags => {
-            block => {
-                'IfAssetExisting?'    => '$'.NAME.'::'.NAME.'::Tags::Conditional::if_asset_existing',
-                'IfAssetNotExisting?' => '$'.NAME.'::'.NAME.'::Tags::Conditional::if_asset_not_existing',
-            },
-        },
-    },
 });
 MT->add_plugin( $plugin );
+
+sub init_registry {
+    my ( $p ) = @_;
+    my $pkg = '$'.NAME.'::'.NAME.'::Tags::Conditional::';
+    $p->registry( 'tags', 'block', {
+        'IfAssetExisting?'    => $pkg . 'if_asset_existing',
+        'IfAssetNotExisting?' => $pkg . 'if_asset_not_existing',
+    });
+}
 
 1;
 __END__
